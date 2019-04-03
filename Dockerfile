@@ -1,3 +1,5 @@
 FROM abuckenheimer/alpine-miniconda:4.5.11
 
-RUN pip install boto3 kubernetes sanic
+RUN apk update && apk add gcc musl-dev pkgconfig && \
+    pip install --no-cache-dir boto3 kubernetes sanic && \
+    apk del gcc
